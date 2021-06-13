@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+		
+	<title>Alacriti Twilio</title>
+		
+  </head>
+	
+  <body>
+	
+	<h1>Sent Messages</h1>
+   
+	{% if data %}
+	  <h1>Show Data</h1>
+	  {% for d in data %}
+	    {{d.id}} &nbsp; &nbsp; &nbsp; {{d.phonenumber}} &nbsp; &nbsp;&nbsp; {{d.body}} &nbsp; &nbsp; &nbsp; {{d.sent_date}}
+            <br><br>
+	{% endfor %}
+
+	{% else %}
+	  <h1>No Data</h1>
+
+	{% endif %}
+		
+			
+  </body>
+	
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alacriti Twilio</title>
+    <link rel="icon" href="https://api.rootstack.com/sites/default/files/featured_twilio.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+body {
+  background-image: url('https://www.alacriti.com/wp-content/uploads/2020/01/Adopting-a-Loan-Payments-Solution-Lessons-Learned-from-Tech-CU-Webinar-Recap.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.container {
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  width: 340px;
+  position: absolute;
+  right: 570px;
+  top: 100px;
+  height: 380px;
+  opacity: 0.4;
+}
+
+.message{
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid black;
+  font-weight: bold;
+}
+.number{
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.cnclbtn{
+  border-radius: 10px;
+  padding: 10px;
+  top: 500px;
+}
+.sendbtn{
+  border-radius: 10px;
+  padding: 10px;
+  top: 100px;
+  width: 70px
+}
+.webhooks{
+	border-radius: 10px;
+
+	background-color: #f2f2f2;  
+
+	padding: 10px;
+
+	width: 130px;
+
+	position: absolute;
+
+	right: 100px;
+
+	top: 10px;
+
+	height: 60px;
+
+	opacity: 0.4;
+ }
+
+.sentmessages{
+         border-radius: 10px;
+
+	 background-color: #f2f2f2;
+
+	 padding: 10px;
+
+	 width: 130px;
+
+	 position: absolute;
+
+	 right: 250px;
+
+	 top: 10px;
+
+	 height: 60px;
+
+	 opacity: 0.4;
+}	
+
+p {text-align: center;}
+</style>
+</head>
+
+<body>
+
+<form action="webhooks" method="post">
+  {% csrf_token %}
+  <input type="submit" class="webhooks" value="Webhooks">
+
+</form>
+
+
+<form action="sentmessages" method="post">
+
+  {% csrf_token %}
+
+  <input type="submit" class="sentmessages" value="sentmessages">
+
+</form>
+
+<div class="container" style="background-color:#f1f1f1">
+<h2 style="text-align:center;">SMS</h2>
+
+<form action="" method='post'>
+	{% csrf_token %}
+
+
+<input class="number" type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter mobile number" maxlength = "11" required/>
+<br>
+<br><br>
+<textarea class="message" rows="6" cols="35" name="body" placeholder="Enter the text here...." required/>
+</textarea>
+
+<br><br><br><br>
+<button type="submit" class="cnclbtn" style="float: left;"> Cancel </button>
+<button type="submit" class="sendbtn" style="float: right;"> Send </button>
+<p class="succesmsg" style="color:green;">{{msg}}</p>
+<p class="failedmsg" style="color:red;">{{failedmsg}}</p> 
+</form>
+
+</div>
+</body>
+</html>
