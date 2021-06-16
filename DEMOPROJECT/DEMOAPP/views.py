@@ -23,7 +23,7 @@ def hi(request):
         # Your Account SID from twilio.com/console
         account_sid = "AC372abf3a0b656698a954db55136d74c7"
         # Your Auth Token from twilio.com/console
-        auth_token = "c15d663e88d887cce85aee0e90f21c3d"
+        auth_token = "b9c84109511ccb8d920bb0ba320892b4"
 
         client = Client(account_sid, auth_token)
         #date = datetime.datetime.now()
@@ -43,6 +43,7 @@ def hi(request):
 
 
         except Exception as e:
+            print("error:",e)
             return render(request,'DEMOAPP/hi.html',{'failedmsg':'Message sent Failed'})
 
         return render(request,'DEMOAPP/hi.html',{'phone':phone,'sid':message.sid,'count' : count,'msg':'Message sent'})
